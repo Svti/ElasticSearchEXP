@@ -209,7 +209,13 @@ public class FileViewPanel extends JPanel{
 												selectedNode.add(new DefaultMutableTreeNode(fileName));
 											}
 											
-											tree.repaint();
+											SwingUtilities.invokeLater(new Runnable(){
+												public void run() {
+													tree.repaint();
+													tree.updateUI();
+												}
+											};
+				
 										}
 										
 									}
